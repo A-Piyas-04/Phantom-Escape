@@ -31,6 +31,23 @@
             max-width: 400px;
         }
 
+        .username-input {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-family: 'Rajdhani', sans-serif;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .username-input::placeholder {
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+
         .menu-button {
             background: transparent;
             border: 2px solid var(--primary-color);
@@ -70,63 +87,29 @@
             width: 300px;
             height: 300px;
         }
-
-        .register-button {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            padding: 0.8rem 1.5rem;
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            font-family: 'Rajdhani', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .register-button:hover {
-            background: var(--primary-color);
-            color: var(--background-color);
-            box-shadow: 0 0 20px var(--primary-color);
-        }
     </style>
 </head>
 <body>
-    <button class="register-button" onclick="window.location.href='views/register.html'">Register</button>
-    <button class="logout-button" onclick="logout()" style="display: none; position: fixed; top: 2rem; right: 2rem; padding: 0.8rem 1.5rem; background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s ease;">Logout</button>
     <div class="menu-container">
         <h1 class="game-title neon-text">Phantom Escape</h1>
         <div class="menu-options">
-            <div id="authenticated-content" style="display: none;">
-                <button class="menu-button" onclick="window.location.href='views/rooms.html'">Start Game</button>
-                <button class="menu-button" onclick="window.location.href='views/profile.html'">Profile</button>
-                <button class="menu-button" onclick="window.location.href='views/leaderboard.html'">Leaderboard</button>
-                <button class="menu-button" onclick="window.location.href='views/about.html'">About</button>
-            </div>
-            <div id="unauthenticated-content">
-                <button class="menu-button" onclick="window.location.href='views/login.html'">Login</button>
-                <button class="menu-button" onclick="window.location.href='views/about.html'">About</button>
-            </div>
+            <input type="text" class="username-input" placeholder="Enter your username" id="username-input">
+            <button class="menu-button" onclick="startGame()">Start Game</button>
+            <button class="menu-button" onclick="window.location.href='views/leaderboard.html'">Leaderboard</button>
+            <button class="menu-button" onclick="window.location.href='views/about.html'">About</button>
         </div>
-        <script>
-            // Update menu visibility based on authentication status
-            document.addEventListener('DOMContentLoaded', () => {
-                const authenticatedContent = document.getElementById('authenticated-content');
-                const unauthenticatedContent = document.getElementById('unauthenticated-content');
-                
-                if (isAuthenticated()) {
-                    authenticatedContent.style.display = 'block';
-                    unauthenticatedContent.style.display = 'none';
-                } else {
-                    authenticatedContent.style.display = 'none';
-                    unauthenticatedContent.style.display = 'block';
-                }
-            });
-        </script>
+    </div>
 
-    <script src="js/animations.js"></script>
-    <script src="js/auth.js"></script>
+    <script>
+        function startGame() {
+            const username = document.getElementById('username-input').value.trim();
+            if (username) {
+                localStorage.setItem('username', username);
+                window.location.href = 'views/game.html';
+            } else {
+                alert('Please enter a username to start the game');
+            }
+        }
+    </script>
 </body>
 </html>
