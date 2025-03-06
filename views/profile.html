@@ -107,7 +107,6 @@
                     <h1 class="profile-title neon-text">Phantom Profile</h1>
                     <p class="profile-detail" id="username">Username: Loading...</p>
                     <p class="profile-detail" id="email">Email: Loading...</p>
-                    <p class="profile-detail" id="phantom-name">Phantom Name: Loading...</p>
                 </div>
             </div>
 
@@ -137,7 +136,6 @@
             // Update profile information
             document.getElementById('username').textContent = `Username: ${userProfile.username || 'Not Set'}`;
             document.getElementById('email').textContent = `Email: ${userProfile.email || 'Not Set'}`;
-            document.getElementById('phantom-name').textContent = `Phantom Name: ${userProfile.phantomName || 'Not Set'}`;
             
             // Update statistics
             document.getElementById('total-score').textContent = userProfile.totalScore || '0';
