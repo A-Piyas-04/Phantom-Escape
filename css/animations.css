@@ -1,0 +1,295 @@
+/* Cyberpunk Animations and Effects */
+
+/* Glitch Effect */
+.glitch-text {
+    animation: glitch 1s linear infinite;
+    position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 0, 0, 0);
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-color);
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: 2px 0 var(--secondary-color);
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+    0% { clip: rect(20px, 9999px, 15px, 0); }
+    20% { clip: rect(12px, 9999px, 78px, 0); }
+    40% { clip: rect(52px, 9999px, 31px, 0); }
+    60% { clip: rect(30px, 9999px, 73px, 0); }
+    80% { clip: rect(65px, 9999px, 5px, 0); }
+    100% { clip: rect(40px, 9999px, 27px, 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip: rect(12px, 9999px, 32px, 0); }
+    20% { clip: rect(54px, 9999px, 18px, 0); }
+    40% { clip: rect(20px, 9999px, 64px, 0); }
+    60% { clip: rect(70px, 9999px, 22px, 0); }
+    80% { clip: rect(15px, 9999px, 72px, 0); }
+    100% { clip: rect(60px, 9999px, 35px, 0); }
+}
+
+/* Neon Pulse */
+.neon-text {
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow: 0 0 5px var(--primary-color),
+                     0 0 10px var(--primary-color),
+                     0 0 20px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 10px var(--primary-color),
+                     0 0 20px var(--primary-color),
+                     0 0 30px var(--primary-color);
+    }
+}
+
+/* Page Transitions */
+.page-transition {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button Hover Effects */
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.cyber-button:hover::before {
+    left: 100%;
+}
+
+/* Puzzle Transition Animations */
+.puzzle {
+    animation: puzzleAppear 0.5s ease-out;
+}
+
+@keyframes puzzleAppear {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Success Animation */
+.success-animation {
+    animation: successPulse 0.5s ease-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--success-color-rgb), 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(var(--success-color-rgb), 0.2); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--success-color-rgb), 0); }
+}
+
+/* Error Animation */
+.error-animation {
+    animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* Laser Beam Animation */
+.laser-beam {
+    animation: laserPulse 1s infinite;
+}
+
+@keyframes laserPulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Mirror Rotation Animation */
+.mirror {
+    transition: transform 0.3s ease-out;
+}
+
+/* Ghostly Whispers Animation */
+.ghostly-whispers .play-btn {
+    animation: ghostlyGlow 2s infinite;
+}
+
+@keyframes ghostlyGlow {
+    0%, 100% { box-shadow: 0 0 5px rgba(var(--accent-color-rgb), 0.3); }
+    50% { box-shadow: 0 0 15px rgba(var(--accent-color-rgb), 0.6); }
+}
+
+/* Maze Player Movement */
+.maze-cell.player {
+    transition: all 0.2s ease-out;
+}
+
+/* Card Hover Animation */
+.dashboard-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 65%, var(--primary-color) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dashboard-card:hover::after {
+    opacity: 0.1;
+}
+
+/* Loading Spinner */
+.cyber-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--background-color);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success Animation */
+.success-animation {
+    animation: successPulse 0.5s ease-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Error Shake Animation */
+.error-animation {
+    animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* Timer Warning Animation */
+.timer-warning {
+    animation: timerPulse 1s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+    0%, 100% { color: var(--error-color); }
+    50% { color: var(--text-color); }
+}
+
+/* Door Unlock Animation */
+.door {
+    transition: transform 1s ease-out;
+    transform-origin: left;
+}
+
+.door.unlocked {
+    transform: perspective(1000px) rotateY(-70deg);
+}
+
+/* Flickering Light Effect */
+.flicker-light {
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    41% { opacity: 1; }
+    42% { opacity: 0.8; }
+    43% { opacity: 1; }
+    45% { opacity: 0.3; }
+    46% { opacity: 1; }
+    48% { opacity: 0.5; }
+    49% { opacity: 1; }
+    51% { opacity: 0.7; }
+    52% { opacity: 1; }
+    85% { opacity: 1; }
+    86% { opacity: 0.6; }
+    87% { opacity: 1; }
+}
+
+/* Timer Warning Animation */
+.timer.warning {
+    animation: timerWarning 0.5s infinite;
+    color: var(--warning-color);
+}
+
+@keyframes timerWarning {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 10px var(--warning-color); }
+    50% { transform: scale(1.1); text-shadow: 0 0 20px var(--warning-color); }
+}
+
+/* Interactive Element Hover */
+.interactive-element {
+    transition: all 0.3s ease;
+}
+
+.interactive-element:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* Click Feedback */
+.click-feedback {
+    transition: transform 0.1s ease;
+}
+
+.click-feedback:active {
+    transform: scale(0.95);
+}
+
+/* Timer Warning Animation */
+.timer-warning {
+    animation: timerPulse 1s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+    0%, 100% { color: var(--error-color); }
+    50% { color: var(--text-color); }
+}

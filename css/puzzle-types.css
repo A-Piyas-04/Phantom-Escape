@@ -1,0 +1,228 @@
+.puzzle {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px var(--shadow-color);
+    transition: transform 0.3s ease;
+    padding: 20px;
+}
+
+.puzzle:hover {
+    transform: translateY(-2px);
+}
+
+.puzzle-content {
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.puzzle h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Riddle Puzzle Styles */
+.riddle .riddle-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.riddle-input,
+.cipher-input,
+.math-input {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.answer-input {
+    flex: 1;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.answer-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.submit-btn {
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.submit-btn:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* Cipher Puzzle Styles */
+.cipher .cipher-text {
+    font-family: monospace;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+}
+
+.cipher-hint {
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Math Logic Puzzle Styles */
+.math-logic .problem-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.explanation {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 255, 159, 0.1);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Success and Error Messages */
+.success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--success-color);
+    border-radius: 4px;
+}
+
+.error-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--error-color);
+    border-radius: 4px;
+}
+
+.puzzle.solved {
+    border-color: var(--success-color);
+    opacity: 0.8;
+}
+
+/* Maze Navigation Puzzle Styles */
+.maze-navigation .maze-grid {
+    display: grid;
+    gap: 2px;
+    background: var(--accent-color);
+    padding: 2px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.maze-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 2px;
+}
+
+.maze-cell {
+    aspect-ratio: 1;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.maze-cell.wall {
+    background: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.maze-cell.player {
+    background: var(--success-color);
+    color: var(--bg-color);
+    animation: pulse 1s infinite;
+}
+
+.maze-cell.path {
+    background: rgba(var(--accent-color-rgb), 0.3);
+}
+
+.maze-cell.start {
+    background: var(--info-color);
+}
+
+.maze-cell.end {
+    background: var(--warning-color);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.horizontal-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.direction-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    font-size: 1.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.direction-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.direction-btn:active {
+    transform: scale(0.95);
+}
+
+/* Puzzle Success/Error Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.puzzle-solved {
+    animation: success-glow 2s infinite;
+}
+
+@keyframes success-glow {
+    0% { box-shadow: 0 0 5px var(--success-color); }
+    50% { box-shadow: 0 0 20px var(--success-color); }
+    100% { box-shadow: 0 0 5px var(--success-color); }
+}
+
+.error-animation {
+    animation: shake 0.5s ease-in-out;
+}
