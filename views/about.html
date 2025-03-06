@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Phantom Escape</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cyber-elements.css">
+    <style>
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #00ff99;
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff99;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #00ff99;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
+            background: rgba(0, 255, 153, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-type {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .back-button {
+            position:inherit;
+            top: 15px;
+            left: 15px;
+            z-index: 100;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="cyber-theme">
+    <a href="/" class="cyber-button outline back-button">Back</a>
+    
+    <div class="about-container">
+        <h1 class="glitch-text" data-text="About Me">About Me</h1>
+        
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHyG0Jn5Fezsw/profile-displayphoto-shrink_400_400/B4EZU65QrXHUAg-/0/1740449845588?e=1746662400&v=beta&t=3nsr1ibHWYwipYTKUUgrKRpfYAMdo0N-gNEvzz2-7LQ" alt="Profile Picture">
+            </div>
+
+            <div class="contact-grid">
+                <a href="mailto:ahnafpias@iut-dhaka.edu" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-type">Email</div>
+                        <div class="contact-value">ahnafpias@iut-dhaka.edu</div>
+                    </div>
+                </a>
+
+                <a href="https://www.facebook.com/ahnafshahriar.pias" class="contact-card" target="_blank">
+                    <div class="contact-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-type">Facebook</div>
+                        <div class="contact-value">Ahnaf Shahriar Pias</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/A-Piyas-04" class="contact-card" target="_blank">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-type">GitHub</div>
+                        <div class="contact-value">A-Piyas-04</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/ahnaf-shahriar-pias-5b6a84352/" class="contact-card" target="_blank">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-type">LinkedIn</div>
+                        <div class="contact-value">Ahnaf Shahriar Pias</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
