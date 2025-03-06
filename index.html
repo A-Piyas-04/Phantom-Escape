@@ -15,12 +15,20 @@
             justify-content: center;
             min-height: 100vh;
             padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .game-title {
             font-size: 3.5rem;
             margin-bottom: 2rem;
-            text-align: center;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--primary-color);
+            -webkit-text-stroke: 1px black;
+            text-stroke: 1px rgb(44, 4, 80);
         }
 
         .menu-options {
@@ -39,8 +47,9 @@
             font-size: 1.2rem;
             font-family: 'Rajdhani', sans-serif;
             text-align: center;
-            width: 100%;
-            margin-bottom: 1rem;
+            width: 90%;
+            margin-bottom: 1rem;            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .username-input::placeholder {
@@ -52,64 +61,79 @@
             background: transparent;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
-            padding: 1rem 2rem;
+            padding: 1rem;
             font-size: 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Rajdhani', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
+            width: 100%;
         }
 
         .menu-button:hover {
             background: var(--primary-color);
             color: var(--background-color);
-            box-shadow: 0 0 20px var(--primary-color);
+            box-shadow: 0 0 15px var(--primary-color);
         }
 
-        .menu-button::before {
-            content: '';
+        .menu-buttons {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .logout-button {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            background: var(--primary-color);
-            border-radius: 50%;
-            transition: width 0.5s, height 0.5s;
-            z-index: -1;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            display: none;
         }
 
-        .menu-button:hover::before {
-            width: 300px;
-            height: 300px;
+        .logout-button:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+            box-shadow: 0 0 10px var(--primary-color);
         }
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <h1 class="game-title neon-text">Phantom Escape</h1>
-        <div class="menu-options">
-            <input type="text" class="username-input" placeholder="Enter your username" id="username-input">
-            <button class="menu-button" onclick="startGame()">Start Game</button>
-            <button class="menu-button" onclick="window.location.href='views/leaderboard.html'">Leaderboard</button>
-            <button class="menu-button" onclick="window.location.href='views/about.html'">About</button>
+    <div class="container page-transition">
+        <div class="menu-container">
+            <h1 class="game-title neon-text">Phantom Escape</h1>
+            
+            <div class="menu-options">
+                <input type="text" class="username-input" placeholder="Enter your Phantom-name" id="username-input" required>
+                <button class="menu-button" id="startGameBtn" disabled>Start Game</button>
+                <button class="menu-button" onclick="window.location.href='views/leaderboard.html'">Leaderboard</button>
+                <button class="menu-button" onclick="window.location.href='views/about.html'">About</button>
+            </div>
         </div>
     </div>
 
     <script>
-        function startGame() {
-            const username = document.getElementById('username-input').value.trim();
+        const usernameInput = document.getElementById('username-input');
+        const startGameBtn = document.getElementById('startGameBtn');
+
+        usernameInput.addEventListener('input', () => {
+            const username = usernameInput.value.trim();
+            startGameBtn.disabled = !username;
+        });
+
+        startGameBtn.addEventListener('click', () => {
+            const username = usernameInput.value.trim();
             if (username) {
                 localStorage.setItem('username', username);
-                window.location.href = 'views/game.html';
-            } else {
-                alert('Please enter a username to start the game');
+                window.location.href = 'views/rooms.html';
             }
-        }
+        });
     </script>
 </body>
 </html>
