@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room 1 - Phantom Escape</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cyber-elements.css">
+    <link rel="stylesheet" href="/css/puzzle-types.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body class="cyber-theme">
+    <div class="game-container">
+        <div class="game-header">
+            <div class="timer-container">
+                <div class="countdown-timer neon-text">08:00</div>
+            </div>
+            <div class="score-container">
+                <div class="score-display neon-text">Score: 0</div>
+                <div class="hints-remaining">Hints: 3</div>
+            </div>
+        </div>
+
+        <div class="room-content">
+            <h1 class="glitch-text room-title" data-text="Cyber Security Lab">Cyber Security Lab</h1>
+            
+            <div class="puzzle-grid">
+                <div class="puzzle-card" id="puzzle-1">
+                    <div class="puzzle-inner">
+                        <h3 class="neon-text">Security Riddle</h3>
+                        <div class="puzzle-content riddle">
+                            <p class="riddle-text">Loading...</p>
+                            <div class="input-container">
+                                <input type="text" class="cyber-input" placeholder="Enter answer...">
+                                <button class="cyber-button">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="puzzle-card" id="puzzle-2">
+                    <div class="puzzle-inner">
+                        <h3 class="neon-text">Logic Circuit</h3>
+                        <div class="puzzle-content math-logic">
+                            <p class="problem-text">Loading...</p>
+                            <div class="input-container">
+                                <input type="number" class="cyber-input" placeholder="Enter solution...">
+                                <button class="cyber-button">Verify</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="puzzle-card" id="puzzle-3">
+                    <div class="puzzle-inner">
+                        <h3 class="neon-text">Encryption Cipher</h3>
+                        <div class="puzzle-content cipher">
+                            <p class="encoded-message">Loading...</p>
+                            <div class="input-container">
+                                <input type="text" class="cyber-input" placeholder="Decrypt message...">
+                                <button class="cyber-button">Decode</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/puzzle-types.js"></script>
+    <script src="/js/game.js"></script>
+    <script src="/js/room-1-puzzles.js"></script>
+    <script src="/js/room-1.js"></script>
+</body>
+</html>
