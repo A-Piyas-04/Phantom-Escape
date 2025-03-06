@@ -35,6 +35,16 @@ async function handleFormSubmit(event, isLogin = false) {
 
         if (user?.accessToken) {
             localStorage.setItem(AUTH_TOKEN_KEY, user.accessToken);
+            // Store user profile data
+            const userProfile = {
+                email: email,
+                username: isLogin ? user.username : form.username.value,
+                phantomName: user.phantomName || form.username.value,
+                totalScore: 0,
+                roomsCompleted: 0,
+                bestTime: '--:--'
+            };
+            localStorage.setItem(USER_PROFILE_KEY, JSON.stringify(userProfile));
             // Set Authorization header for future requests
             window.authHeader = {
                 'Authorization': `Bearer ${user.accessToken}`,
