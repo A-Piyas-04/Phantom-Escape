@@ -6,14 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         puzzles: [
             {
                 id: 'puzzle-1',
-                type: 'maze',
-                config: {
-                    gridSize: 8,
-                    cellSize: 40
-                }
-            },
-            {
-                id: 'puzzle-2',
                 type: 'riddle',
                 config: {
                     riddle: 'The more you take, the more you leave behind. What am I?',
@@ -21,11 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             },
             {
-                id: 'puzzle-3',
-                type: 'color-sequence',
+                id: 'puzzle-2',
+                type: 'math-logic',
                 config: {
-                    sequence: ['yellow', 'green', 'blue'],
-                    clue: 'Sun, Grass, Sky'
+                    problem: 'If 3+3 = 12, 4+4 = 20, 5+5 = 30, then what is 6+6?',
+                    answer: '42',
+                    explanation: 'The pattern follows: n+n = n×(n+1)'
                 }
             }
         ]
@@ -44,16 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let puzzle;
             switch (puzzleData.type) {
-                case 'maze':
-                    puzzle = new MazePuzzle(puzzleData.config);
-                    break;
                 case 'riddle':
                     puzzle = new RiddlePuzzle(puzzleData.config);
-                    puzzle.element = puzzleElement.querySelector('.puzzle-content');
-                    puzzleElement.querySelector('.riddle-text').textContent = puzzleData.config.riddle;
                     break;
-                case 'color-sequence':
-                    puzzle = new ColorSequencePuzzle(puzzleData.config);
+                case 'math-logic':
+                    puzzle = new MathLogicPuzzle(puzzleData.config);
                     break;
             }
 

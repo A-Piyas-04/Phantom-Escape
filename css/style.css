@@ -29,12 +29,13 @@ body::before {
 
 /* Base Styles */
 body {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
     color: var(--text-color);
     font-family: 'Rajdhani', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 .container {
