@@ -124,47 +124,36 @@ br.addEventListener("click", (e) => {
 	firstMove = true;
 });
 
-function checkWin() {
-    if (thingie.offsetLeft === home.offsetLeft && thingie.offsetTop === home.offsetTop) {
-        showSuccessMessage();
-    }
-}
-
-// Add win condition check to movement functions
 function up() {
-    animKeys(bu);
-    if (checkYboundry("u")) {
-        thingie.style.top = thingie.offsetTop - step + "px";
-        updateEmo(false);
-        checkWin();
-    }
+	animKeys(bu);
+	if (checkYboundry("u")) {
+		thingie.style.top = thingie.offsetTop - step + "px";
+		updateEmo(false);
+	}
 }
 
 function down() {
-    animKeys(bd);
-    if (checkYboundry("d")) {
-        thingie.style.top = thingie.offsetTop + step + "px";
-        updateEmo(false);
-        checkWin();
-    }
+	animKeys(bd);
+	if (checkYboundry("d")) {
+		thingie.style.top = thingie.offsetTop + step + "px";
+		updateEmo(false);
+	}
 }
 
 function left() {
-    animKeys(bl);
-    if (checkXboundry("l")) {
-        thingie.style.left = thingie.offsetLeft - step + "px";
-        updateEmo(true);
-        checkWin();
-    }
+	animKeys(bl);
+	if (checkXboundry("l")) {
+		thingie.style.left = thingie.offsetLeft - step + "px";
+	}
+	updateEmo(true);
 }
 
 function right() {
-    animKeys(br);
-    if (checkXboundry("r")) {
-        thingie.style.left = thingie.offsetLeft + step + "px";
-        updateEmo(true);
-        checkWin();
-    }
+	animKeys(br);
+	if (checkXboundry("r")) {
+		thingie.style.left = thingie.offsetLeft + step + "px";
+	}
+	updateEmo(true);
 }
 
 //check if one can move horizontally
@@ -797,13 +786,3 @@ cont.addEventListener("wheel", (e) => {
 		lastscrollpX = 0;
 	}
 });
-
-function showSuccessMessage() {
-    const successMessage = document.getElementById('success-message');
-    successMessage.style.display = 'block';
-    
-    setTimeout(() => {
-        successMessage.style.display = 'none';
-        window.location.href = 'room-2.html';
-    }, 3000);
-}

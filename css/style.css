@@ -206,3 +206,21 @@ body {
         text-align: center;
     }
 }
+
+/* Success Message Styles */
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 255, 0, 0.2);
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 0 20px var(--success-color);
+    animation: successPulse 2s infinite;
+}
