@@ -55,6 +55,9 @@ window.onload = function() {
 
         document.getElementById("pieces").append(tile);
     }
+
+    // Add submit button click handler
+    document.getElementById("submit-button").addEventListener("click", checkPuzzle);
 }
 
 //DRAG TILES
@@ -89,4 +92,25 @@ function dragEnd() {
 
     turns += 1;
     document.getElementById("turns").innerText = turns;
+}
+
+function checkPuzzle() {
+    const boardTiles = document.getElementById("board").getElementsByTagName("img");
+    let isCorrect = true;
+
+    for (let i = 0; i < boardTiles.length; i++) {
+        const expectedNumber = (i + 1).toString();
+        const currentTileSrc = boardTiles[i].src;
+        
+        if (!currentTileSrc.includes(expectedNumber + ".jpg")) {
+            isCorrect = false;
+            break;
+        }
+    }
+
+    if (isCorrect) {
+        alert("Congrats! Level Cleared");
+    } else {
+        alert("Incorrect pattern");
+    }
 }
