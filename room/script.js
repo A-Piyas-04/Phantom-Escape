@@ -1,0 +1,1 @@
+// Room is now static, no mouse movement interaction needed
