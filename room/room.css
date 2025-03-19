@@ -201,6 +201,164 @@ body {
     box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
 }
 
+.holographic-panel {
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0) translateZ(20px);
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #00220055, #00440055);
+    border-left: 4px solid #00ff00;
+    border-right: 4px solid #00ff00;
+    box-shadow: 0 0 50px #00ff0033;
+}
+
+.holo-screen {
+    position: relative;
+    width: 90%;
+    height: 70%;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #00330088, #00110088);
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #00ff0044;
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(-15deg);
+}
+
+.panel-base {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    border-top: 2px solid #00ff00;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.base-light {
+    width: 10px;
+    height: 10px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ff00;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 1; box-shadow: 0 0 15px #00ff00; }
+    to { opacity: 0.5; box-shadow: 0 0 5px #00ff00; }
+}
+
+.holo-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.data-stream {
+    height: 2px;
+    background: #00ff00;
+    margin: 10px 0;
+    position: relative;
+    opacity: 0.7;
+    animation: stream 3s linear infinite;
+}
+
+.data-stream:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+@keyframes stream {
+    0% { width: 0; left: 0; }
+    50% { width: 100%; left: 0; }
+    51% { width: 100%; left: auto; right: 0; }
+    100% { width: 0; right: 0; }
+}
+
+.holo-controls {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #00220088, #00440088);
+    padding: 15px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff0033;
+}
+
+.control-button {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #002200, #004400);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.control-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #00ff00;
+    bottom: 8px;
+    left: 0;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.control-button:hover {
+    background: linear-gradient(45deg, #004400, #006600);
+    box-shadow: 0 0 15px #00ff0066;
+    transform: translateY(-2px);
+}
+
+.control-slider {
+    width: 150px;
+    height: 12px;
+    background: linear-gradient(90deg, #001100, #003300);
+    border: 1px solid #00ff00;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px #00ff0044;
+}
+
+.control-slider::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #00ff00;
+    border-radius: 50%;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #00ff00;
+    transition: all 0.3s ease;
+}
+
+.control-slider:hover::before {
+    box-shadow: 0 0 20px #00ff00;
+    background: #00ff99;
+}
+
+
 .keyboard::before {
     content: '';
     position: absolute;
